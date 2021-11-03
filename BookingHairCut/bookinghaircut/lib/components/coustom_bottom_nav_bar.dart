@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:bookinghaircut/screens/home/home_screen.dart';
 import 'package:bookinghaircut/screens/profile/profile_screen.dart';
 import 'package:bookinghaircut/screens/schedule/schedule.dart';
+import 'package:bookinghaircut/screens/love_service/love_screen.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import '../constants.dart';
 import '../enums.dart';
@@ -46,7 +47,8 @@ class CustomBottomNavBar extends StatelessWidget {
               ),
               IconButton(
                 icon: const Icon(FeatherIcons.heart),
-                onPressed: () {},
+                onPressed: () =>
+                    Navigator.pushNamed(context, LoveScreen.routeName),
               ),
               IconButton(
                 icon: const Icon(FeatherIcons.calendar),

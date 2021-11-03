@@ -23,7 +23,6 @@ class netWorkRequestService {
       throw Exception(e);
     }
     if (res.statusCode == 200) {
-      print(res.body);
       List<dynamic> body = json.decode(res.body);
       List<ServicesModel> category =
           body.map((dynamic e) => ServicesModel.fromJson(e)).toList();

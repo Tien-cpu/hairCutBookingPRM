@@ -13,6 +13,8 @@ import 'package:bookinghaircut/screens/details/details_screen.dart';
 import 'package:bookinghaircut/screens/profile/profile_screen.dart';
 import 'package:bookinghaircut/screens/schedule/schedule.dart';
 import 'package:bookinghaircut/screens/details_service/details_screen.dart';
+import 'package:bookinghaircut/screens/booking/booking_screen.dart';
+import 'package:bookinghaircut/screens/love_service/love_screen.dart';
 
 final Map<String, WidgetBuilder> routers = {
   welcomeScreen.routeName: (context) => welcomeScreen(),
@@ -25,4 +27,6 @@ final Map<String, WidgetBuilder> routers = {
   ProfileScreen.routeName: (context) => ProfileScreen(),
   ScheduleScreen.routeName: (context) => ScheduleScreen(),
   DetailsServiceScreen.routeName: (context) => DetailsServiceScreen(),
+  BookingScreen.routeName: (context) => BookingScreen(),
+  LoveScreen.routeName: (context) => LoveScreen(),
 };

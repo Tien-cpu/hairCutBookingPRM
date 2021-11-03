@@ -12,18 +12,25 @@ class ServicesModel {
   final String? image;
   final int? estimateTime;
   final String? description;
+  final List<int>? workingDay;
+  final String? open;
+  final String? close;
 
-  ServicesModel(
-      {this.name,
-      this.price,
-      this.barbershop,
-      this.isSelected,
-      this.numberOfUsedPeople,
-      this.offerPrice,
-      this.rating,
-      this.image,
-      this.estimateTime,
-      this.description});
+  ServicesModel({
+    this.name,
+    this.price,
+    this.barbershop,
+    this.isSelected,
+    this.numberOfUsedPeople,
+    this.offerPrice,
+    this.rating,
+    this.image,
+    this.estimateTime,
+    this.description,
+    this.workingDay,
+    this.close,
+    this.open,
+  });
   factory ServicesModel.fromJson(Map<String, dynamic> json) {
     return ServicesModel(
       name: json['name'],
@@ -36,6 +43,9 @@ class ServicesModel {
       image: json['image'],
       estimateTime: json['estimateTime'],
       description: json['description'],
+      workingDay: json['workingDay'],
+      close: json['close'],
+      open: json['open'],
     );
   }
 
@@ -51,6 +61,9 @@ class ServicesModel {
     data['image'] = this.image;
     data['estimateTime'] = this.estimateTime;
     data['description'] = this.description;
+    data['workingDay'] = this.workingDay;
+    data['close'] = this.close;
+    data['open'] = this.open;
     return data;
   }
 }

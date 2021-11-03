@@ -3,11 +3,13 @@ import 'package:bookinghaircut/components/default_button.dart';
 import 'package:bookinghaircut/models/Product.dart';
 import 'package:bookinghaircut/models/service_model.dart';
 import 'package:bookinghaircut/size_config.dart';
-
+import 'package:bookinghaircut/screens/home/home_screen.dart';
 import 'color_dots.dart';
 import 'product_description.dart';
 import 'top_rounded_container.dart';
 import 'product_images.dart';
+import 'package:bookinghaircut/screens/booking/booking_screen.dart';
+import 'package:get/get.dart';
 
 class Body extends StatelessWidget {
   final ServicesModel service;
@@ -42,7 +44,14 @@ class Body extends StatelessWidget {
                         ),
                         child: DefaultButton(
                           text: "Booking",
-                          press: () {},
+                          press: () {
+                            Navigator.pushNamed(
+                              context,
+                              BookingScreen.routeName,
+                              arguments:
+                                  ServiceBookingArguments(service: service),
+                            );
+                          },
                         ),
                       ),
                     ),

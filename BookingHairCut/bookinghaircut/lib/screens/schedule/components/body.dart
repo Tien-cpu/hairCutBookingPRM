@@ -9,6 +9,7 @@ import 'home_header.dart';
 import 'popular_product.dart';
 import 'special_offers.dart';
 import 'icon_btn_with_counter.dart';
+import 'build_scrollable_services.dart';
 
 class Body extends StatelessWidget {
   bool _isFromProfile = false;
@@ -18,7 +19,7 @@ class Body extends StatelessWidget {
     return SafeArea(
       child: Container(
         width: MediaQuery.of(context).size.width,
-        height: 500,
+        height: 700,
         decoration: const BoxDecoration(
             // image: DecorationImage(
             //   fit: BoxFit.cover,
@@ -88,17 +89,14 @@ class _BuildBooking extends StatelessWidget {
       : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return
-        // Scaffold(
-        //     body: SfCalendar(
-        //   view: CalendarView.month,
-
-        //   // timeSlotViewSettings: TimeSlotViewSettings(
-        //   //   startHour: 8,
-        //   //   endHour: 20,
-        //   //   // nonWorkingDays: <int>[DateTime.friday, DateTime.saturday]
-        //   // ),
-        // ));
-        Text('1');
+    return ListView.builder(
+      itemCount: bookingmodellist.length,
+      shrinkWrap: true,
+      physics: const ScrollPhysics(),
+      itemBuilder: (context, index) {
+        final _data = bookingmodellist[index];
+        return PopularService();
+      },
+    );
   }
 }
