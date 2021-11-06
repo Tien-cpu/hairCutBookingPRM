@@ -36,10 +36,12 @@ class netWorkRequestnode {
     http.Response res;
     print("1");
     try {
+      print("1.1");
       res = await http.get(uri, headers: {
         "Accept": "application/json",
         "Access-Control_Allow_Origin": "*"
       });
+      print("1.2");
     } catch (e) {
       print(e.toString());
       throw Exception(e);

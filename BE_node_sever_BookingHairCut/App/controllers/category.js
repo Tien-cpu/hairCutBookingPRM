@@ -8,6 +8,16 @@ exports.getcategory = function( req , res){
             {"icon": "assets/icons/shampoo.svg", "text": "Gội đâu"},
         ]);
 }
+exports.getcategorylist = function( req , res){
+    return res.json(
+        [
+            {"id": 1, "text": "Nhuộm tóc"},
+            {"id": 2, "text": "Cát Tóc"},
+            {"id": 3, "text": "Tạo kiểu"},
+            {"id": 4, "text": "Cạo mặt"},
+            {"id": 5, "text": "Gội đâu"},
+        ]);
+}
 exports.getasevicecategory = function( req , res){
     return res.json(
         [

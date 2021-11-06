@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 
-import { adminpage } from '../../Models/AdminHomePageModel';
+// import { adminpage } from '../../Models/AdminHomePageModel';
+import { Appoinment } from '../../Models/AppoinmentModel';
 
 import { Router } from '@angular/router';
-import { FirebaseService } from '../../Services/firebase.service'
-import { AccountService } from '../../Services/account.service'
+// import { FirebaseService } from '../../Services/firebase.service'
+// import { AccountService } from '../../Services/account.service'
+import { SalonAppoinmentService } from '../../Services/apponment.service'
 
 import { User } from '../../Models/User'
 @Component({
@@ -24,11 +26,12 @@ export class HomeComponent {
 
   constructor(private router: Router
     // , private _authService: AuthService
-    , private firebaseService : FirebaseService
-    , private accountService : AccountService
+    // , private firebaseService : FirebaseService
+    // , private accountService : AccountService
+    , private salonAppoinmentService : SalonAppoinmentService
     ) { }
 
-  datapage : adminpage = new adminpage;
+  // datapage : adminpage = new adminpage;
   ListStatus: {
     "value" : string,
     "key": string,
@@ -68,10 +71,31 @@ export class HomeComponent {
   activeddl:string= 'active';
   activeddl2:string= '';
   activeddl3:string= '';
+  public commingA : Appoinment[] = [];
+  public finishA : Appoinment[] = [];
+  public cancelA : Appoinment[] = [];
   ngOnInit() {
+    this.salonAppoinmentService.getDataDasboardPage().subscribe((data)=>{
+      data.forEach((item) => {
+        if(item.status == 'comming'){
+          this.commingA.push(item)
+        } else if(item.status == 'finnish'){
+          this.finishA.push(item)
+        } else if(item.status == 'cancel'){
+          this.cancelA.push(item)
+        }
+      })
+    });
     this.selectstatus = this.ListStatus[0].key
   }
+  cancelService(apoinment: Appoinment){
+    this.salonAppoinmentService.postCancelDasboardPage(apoinment).subscribe((data) => console.log(data));
+    console.log(apoinment)
+  }
   opentab(tab:String){
+    console.log(this.commingA)
+    console.log(this.finishA)
+    console.log(this.cancelA)
     if(tab === 'DaDat'){
       this.displayddl = 'block';
       this.displayddl2 = 'none';

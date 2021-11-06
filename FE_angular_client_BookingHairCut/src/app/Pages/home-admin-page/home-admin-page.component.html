@@ -8,18 +8,13 @@
 <!-- CSS Just for demo purpose, don't include it in your project -->
 <!-- <link href="../../assets/demo/demo.css" rel="stylesheet" /> -->
 <div class="wrapper ">
-  <div
-    class="sidebar"
-    data-color="danger"
-    data-background-color="white"
-    data-image="../assets/img/sidebar-1.jpg"
-  >
+  <div class="sidebar" data-color="danger" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
 
-  <div class="logo">
-    <a href="#" class="simple-text logo-normal">
-      <h4 class="heading-section" style="color: #e3b04b !important;">HAIRBOOK</h4> 
-    </a>
-  </div>
+    <div class="logo">
+      <a href="#" class="simple-text logo-normal">
+        <h4 class="heading-section" style="color: #e3b04b !important;">HAIRBOOK</h4>
+      </a>
+    </div>
     <div class="sidebar-wrapper ">
       <ul class="nav">
         <li class="nav-item   active">
@@ -69,7 +64,8 @@
           </div>
           <a class="navbar-brand" href="javascript:;">Lịch Hẹn</a>
         </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-bar navbar-kebab"></span>
           <span class="navbar-toggler-bar navbar-kebab"></span>
           <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -108,53 +104,138 @@
     </nav>
     <!-- End Navbar -->
     <div class="content2">
-    <div class="col-md-11 col-11" style="margin-top: 63px; margin-left: 20px;" >
-    </div>
-    <div class="tab">
-      <div class="row">
-        <div class="col-md-4 Center ">
-          <button class="tablinks {{activeddl}}" id="buttonclichThongTin" (click)="opentab('DaDat')">Sắp tới</button>
-        </div>
-        <div class="col-md-4 Center">
-          <button class="tablinks {{activeddl2}}" id="buttonclichThanhPhan"  (click)="opentab('HoanThanh')">Đã hoàn thành</button>
-        </div>
-        <div class="col-md-4 Center">
-          <button class="tablinks {{activeddl3}}" id="buttonclichTienHanh"  (click)="opentab('DaHuy')">Đã hủy</button>
+      <div class="col-md-11 col-11" style="margin-top: 63px; margin-left: 20px;">
+      </div>
+      <div class="tab">
+        <div class="row">
+          <div class="col-md-4 Center ">
+            <button class="tablinks {{activeddl}}" id="buttonclichThongTin" (click)="opentab('DaDat')">Sắp tới</button>
+          </div>
+          <div class="col-md-4 Center">
+            <button class="tablinks {{activeddl2}}" id="buttonclichThanhPhan" (click)="opentab('HoanThanh')">Đã hoàn
+              thành</button>
+          </div>
+          <div class="col-md-4 Center">
+            <button class="tablinks {{activeddl3}}" id="buttonclichTienHanh" (click)="opentab('DaHuy')">Đã hủy</button>
+          </div>
         </div>
       </div>
-    </div>
-    <div id="DaDat" class="tabcontent" [ngStyle]="{display:displayddl}">
-      <div class="content3">
-        <div class="row">
-          <div class="col-md-10" style="margin-left: 8%;" >
-            <div class="card ">
-              <div class="card-header ">
-              </div>
-              <div class="card-body ">
-                <div class="row">
-                <div class="col-md-2 col-2">
-                  <div class="avatar2">
-                    <img src="https://ephoto360.com/uploads/worigin/2020/03/23/tao-avatar-mac-dinh-facebook-thay-nen-cuc-hot5e7838ae39057_96eb8aef68a3aa00523448390b49fbcb.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+      <div id="DaDat" class="tabcontent" [ngStyle]="{display:displayddl}">
+        <div class="content3" *ngFor="let st of commingA" >
+          <div class="row">
+            <div class="col-md-10" style="margin-left: 8%;">
+              <div class="card ">
+                <div class="card-header ">
+                </div>
+                <div class="card-body ">
+                  <div class="row">
+                    <div class="col-md-2 col-2">
+                      <div class="avatar2">
+                        <img
+                          src="{{st.image}}"
+                          alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                      </div>
+                    </div>
+                    <div class="col-lg-7 col-7">
+                      {{st.cutomerName}} <br>
+                      Dịch vụ : {{st.services}} <br>
+                      Thời Gian : {{st.date}} {{st.time}} <br>
+                      Trạng thái : <span class="text-success">Đã đặt lịch</span> <br>
+                      Giá Dịch Vụ : {{st.totalPrice}} vnd<br>
+                    </div>
                   </div>
                 </div>
-                <div class="col-lg-7 col-7">
-                  Nguyễn Thị B <br>
-                  Dịch vụ : Kiểu tóc Layer với nhiều mẫu tóc đẹp <br>
-                  Thời Gian : 17/10/2021 13:30 <br>
-                  Trạng thái : <span class="text-success">Đã đặt lịch</span> <br>
-                  Giá Dịch Vụ : 280.000 vnd<br>
-                  khuyến mãi sử dụng : 15% <br>
-                  Thanh Toán : 238.000 vnd
+                <div class="card-footer ">
+                  <hr>
+                  <div class="col-md-10 col-10text-right stats">
+                    <i class="fa fa-history"></i> Đã đặt dịch vụ 3 ngày trước
+                  </div>
+                  <div class="col-md-2 col-2">
+                    <button  type="submit" class="btn btn-primary btn-round" (click)="cancelService(st)" >Hủy Đơn</button>
+                  </div>
                 </div>
               </div>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="col-md-10 col-10text-right stats">
-                  <i class="fa fa-history"></i> Đã đặt dịch vụ 3 ngày trước
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      <div id="DaHuy" class="tabcontent" [ngStyle]="{display:displayddl2}">
+        <div class="content"  *ngFor="let st of commingA" >
+          <div class="row">
+            <div class="col-md-10" style="margin-left: 8%;">
+              <div class="card ">
+                <div class="card-header ">
                 </div>
-                <div class="col-md-2 col-2">
-                  <button onclick="myComfirm()" type="submit" class="btn btn-primary btn-round">Hủy Đơn</button>
+                <div class="card-body ">
+                  <div class="row">
+                    <div class="col-md-2 col-2">
+                      <div class="avatar2">
+                        <img
+                          src="{{st.image}}"
+                          alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                      </div>
+                    </div>
+                    <div class="col-lg-7 col-7">
+                      {{st.cutomerName}} <br>
+                      Dịch vụ : {{st.services}} <br>
+                      Thời Gian : {{st.date}} {{st.time}} <br>
+                      Trạng thái : <span class="text-danger">Đã Hủy</span> <br>
+                      Giá Dịch Vụ : {{st.totalPrice}} vnd<br>
+                      Lý Do : Hủy do dịch covid
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer ">
+                  <hr>
+                  <div class="col-md-10 col-10text-right stats">
+                    <i class="fa fa-history"></i> Đã hủy dịch vụ 2 ngày trước
+                  </div>
+                  <div class="col-md-2 col-2">
+                    <!-- <button type="submit" class="btn btn-primary btn-round">Xem Thông Tin</button> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="HoanThanh" class="tabcontent" [ngStyle]="{display:displayddl3}">
+        <div class="content"  *ngFor="let st of commingA" >
+          <div class="row">
+            <div class="col-md-10" style="margin-left: 8%;">
+              <div class="card ">
+
+                <div class="card-header ">
+                  <!-- <p class="card-category">24 Hours performance</p> -->
+                </div>
+                <div class="card-body ">
+                  <div class="row">
+                    <div class="col-md-2 col-2">
+                      <div class="avatar2">
+                        <img
+                          src="{{st.image}}"
+                          alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                      </div>
+                    </div>
+                    <div class="col-lg-7 col-7">
+                      {{st.cutomerName}} <br>
+                      Dịch vụ : {{st.services}} <br>
+                      Thời Gian : {{st.date}} {{st.time}} <br>
+                      Trạng thái : <span class="text-success">Đã Hoàn Thành</span> <br>
+                      Giá Dịch Vụ : {{st.totalPrice}} vnd<br>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer ">
+                  <hr>
+                  <div class="col-md-10 col-10text-right stats">
+                    <i class="fa fa-history"></i> Đã sử dụng dịch vụ 2 ngày trước
+                  </div>
+                  <div class="col-md-2 col-2">
+                    <!-- <button type="submit" class="btn btn-primary btn-round">Xem Thông Tin</button> -->
+                  </div>
                 </div>
               </div>
             </div>
@@ -162,86 +243,6 @@
         </div>
       </div>
     </div>
-    <div id="DaHuy" class="tabcontent" [ngStyle]="{display:displayddl2}">
-      <div class="content">
-        <div class="row">
-          <div class="col-md-10" style="margin-left: 8%;">
-            <div class="card ">
-              <div class="card-header ">
-              </div>
-              <div class="card-body ">
-                <div class="row">
-                <div class="col-md-2 col-2">
-                  <div class="avatar2">
-                    <img src="https://2.bp.blogspot.com/-0yUMg-UzcQA/VHvNOcQXgbI/AAAAAAAAQlo/fALw0-y1z-U/s1600/Avatar-Facebook-an-danh-trang-1.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                  </div>
-                </div>
-                <div class="col-lg-7 col-7">
-                  Nguyễn Văn A <br>
-                  Dịch vụ : Cắt tóc Layer <br>
-                  Thời Gian : 17/10/2021 13:30 <br>
-                  Trạng thái : <span class="text-danger">Đã Hủy</span> <br>
-                  Lý Do : Hủy do dịch covid 
-                </div>
-              </div>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="col-md-10 col-10text-right stats">
-                  <i class="fa fa-history"></i> Đã hủy dịch vụ 2 ngày trước
-                </div>
-                <div class="col-md-2 col-2">
-                  <button type="submit" class="btn btn-primary btn-round">Xem Thông Tin</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div id="HoanThanh" class="tabcontent" [ngStyle]="{display:displayddl3}">
-      <div class="content">
-        <div class="row">
-          <div class="col-md-10" style="margin-left: 8%;">
-            <div class="card ">
-              
-              <div class="card-header ">
-                <!-- <p class="card-category">24 Hours performance</p> -->
-              </div>
-              <div class="card-body ">
-                <div class="row">
-                <div class="col-md-2 col-2">
-                  <div class="avatar2">
-                    <img src="https://2.bp.blogspot.com/-lp7C5Pia2vM/VHvNWgBPSiI/AAAAAAAAQnk/ekCk6XWlboU/s1600/Avatar-Facebook-an-danh-trang-7.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                  </div>
-                </div>
-                <div class="col-lg-7 col-7">
-                  Nguyễn Văn A <br>
-                  Dịch vụ : Cắt tóc Layer <br>
-                  Thời Gian : 17/10/2021 13:30 <br>
-                  Trạng thái : <span class="text-success">Đã Hoàn Thành</span> <br>
-                  Giá Dịch Vụ : 280.000 vnd<br>
-                  khuyến mãi sử dụng : 15% <br>
-                  Thanh Toán : 238.000 vnd
-                </div>
-              </div>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="col-md-10 col-10text-right stats">
-                  <i class="fa fa-history"></i> Đã sử dụng dịch vụ 2 ngày trước
-                </div>
-                <div class="col-md-2 col-2">
-                  <button type="submit" class="btn btn-primary btn-round">Xem Thông Tin</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-</div>
     <footer>
       <!-- <div class="chat-popup" id="myForm">
         <form action="/action_page.php" class="form-container">
@@ -280,7 +281,7 @@
       </div> -->
     </footer>
   </div>
-</div> 
+</div>
 <!--   Core JS Files   -->
 <script src="../assets/js/core/jquery.min.js"></script>
 <script src="../assets/js/core/popper.min.js"></script>
@@ -293,18 +294,19 @@
 <!--  Notifications Plugin    -->
 <script src="../assets/js/plugins/bootstrap-notify.js"></script>
 <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="../assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script><!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+<script src="../assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>
+<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
 <script src="../assets/demo/demo.js"></script>
 <script>
-  $(document).ready(function() {
+  $(document).ready(function () {
     // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
     demo.initChartsPages();
   });
 </script>
-    <footer class="footer">
-      <div class="container-fluid">
-        <div class="copyright float-right">
-          Copyright © 2021 <a href="##" target="_blank">CookBox</a> All Rights Reserved.
-        </div>
-      </div>
-    </footer>
+<footer class="footer">
+  <div class="container-fluid">
+    <div class="copyright float-right">
+      Copyright © 2021 <a href="##" target="_blank">CookBox</a> All Rights Reserved.
+    </div>
+  </div>
+</footer>

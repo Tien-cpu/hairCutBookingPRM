@@ -41,21 +41,23 @@ export class LoginComponent implements OnInit {
   public login(){
     // console.log("click login");
 
-    // const user : {"pass":string,"email":string}= {
-    //   email : this.email,
-    //   pass : this.password,
-    // }
-    // this.accountService.getTokenadmin(user).subscribe(
-    //   (data: any) => {
-    //     console.log("true");
-    //       console.log(data);
-
-    //       const obj = JSON.parse(data);
-    //       sessionStorage.setItem('token', obj.token);
-    //       this.router.navigate(['home']);
-    //   }
-    // );
-    this.router.navigate(['home']);
+    const user : {"pass":string,"email":string}= {
+      email : this.email,
+      pass : this.password,
+    }
+    console.log(user);
+    this.accountService.getTokenadmin(user).subscribe(
+      (data: any) => {
+        const obj = JSON.parse(data);
+          if(obj[0].id == 0){
+            console.log('ll');
+          }else{
+            sessionStorage.setItem('token', obj[0].id);
+            this.router.navigate(['home']);
+          }
+      }
+    );
+    // this.router.navigate(['home']);
   }
 
   loginWithGoogle(){

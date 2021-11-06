@@ -8,18 +8,13 @@
 <!-- CSS Just for demo purpose, don't include it in your project -->
 <!-- <link href="../../assets/demo/demo.css" rel="stylesheet" /> -->
 <div class="wrapper ">
-  <div
-    class="sidebar"
-    data-color="danger"
-    data-background-color="white"
-    data-image="../assets/img/sidebar-1.jpg"
-  >
+  <div class="sidebar" data-color="danger" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
 
-  <div class="logo">
-    <a href="#" class="simple-text logo-normal">
-      <h4 class="heading-section" style="color: #e3b04b !important;">HAIRBOOK</h4> 
-    </a>
-  </div>
+    <div class="logo">
+      <a href="#" class="simple-text logo-normal">
+        <h4 class="heading-section" style="color: #e3b04b !important;">HAIRBOOK</h4>
+      </a>
+    </div>
     <div class="sidebar-wrapper ">
       <ul class="nav">
         <li class="nav-item   ">
@@ -56,119 +51,175 @@
     </div>
   </div>
   <!-- <div class="main-panel"> -->
+  <!-- Navbar -->
+  <div class="main-panel">
     <!-- Navbar -->
-    <div class="main-panel">
-      <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
-          <div class="container-fluid">
-            <div class="navbar-wrapper">
-              <div class="navbar-toggle">
-                <button type="button" class="navbar-toggler">
-                  <span class="navbar-toggler-bar bar1"></span>
-                  <span class="navbar-toggler-bar bar2"></span>
-                  <span class="navbar-toggler-bar bar3"></span>
-                </button>
-              </div>
-              <a class="navbar-brand" href="javascript:;">Lịch Hẹn</a>
-            </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-bar navbar-kebab"></span>
-              <span class="navbar-toggler-bar navbar-kebab"></span>
-              <span class="navbar-toggler-bar navbar-kebab"></span>
+    <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+      <div class="container-fluid">
+        <div class="navbar-wrapper">
+          <div class="navbar-toggle">
+            <button type="button" class="navbar-toggler">
+              <span class="navbar-toggler-bar bar1"></span>
+              <span class="navbar-toggler-bar bar2"></span>
+              <span class="navbar-toggler-bar bar3"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navigation">
-              <form>
-                <div class="input-group no-border">
-                  <input type="text" value="" class="form-control" placeholder="Search...">
-                  <div class="input-group-append">
-                    <div class="input-group-text">
-                      <i class="nc-icon nc-zoom-split"></i>
+          </div>
+          <a class="navbar-brand" href="javascript:;">Lịch Hẹn</a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-bar navbar-kebab"></span>
+          <span class="navbar-toggler-bar navbar-kebab"></span>
+          <span class="navbar-toggler-bar navbar-kebab"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navigation">
+          <form>
+            <div class="input-group no-border">
+              <input type="text" value="" class="form-control" placeholder="Search...">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <i class="nc-icon nc-zoom-split"></i>
+                </div>
+              </div>
+            </div>
+          </form>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link btn-magnify" href="javascript:;">
+                <i class="nc-icon nc-layout-11"></i>
+                <p>
+                  <span class="d-lg-none d-md-block">Stats</span>
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn-rotate" href="javascript:;">
+                <i class="nc-icon nc-settings-gear-65"></i>
+                <p>
+                  <span class="d-lg-none d-md-block">Account</span>
+                </p>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- End Navbar -->
+    <div class="content2">
+      <div class="col-md-11 col-11" style="margin-top: 63px; margin-left: 20px;">
+        <div class="card ">
+
+          <div class="card-header ">
+            <!-- <p class="card-category">24 Hours performance</p> -->
+          </div>
+
+          <div class="card-body ">
+            <div class="row">
+              <div class="col-md-2">
+                <div class="avatar3">
+                  <img src="{{salonOwner.image}}" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                  <input type="file" id="img" name="img" accept="image/*" class="form-control" placeholder="">
+                </div>
+              </div>
+              <div class="col-md-10">
+                <div class="row">
+
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Tên Dịch vụ</label>
+                      <input type="text" class="form-control" placeholder="Tên" name="TXTnameService" [(ngModel)]="salonOwner.name" >
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Giá gốc</label>
+                      <input type="number" class="form-control" placeholder="0 vnd" name="TXTpriceService" [(ngModel)]="salonOwner.price" >
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Loại dịch vụ</label>
+                      <select name="statusSelect" class="form-control custom-select"  [(ngModel)]="salonOwner.category">
+                        <option [value]="st.id" *ngFor="let st of category"  value="{{st.id}}">{{st.text}}</option>
+                      </select>
                     </div>
                   </div>
                 </div>
-              </form>
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link btn-magnify" href="javascript:;">
-                    <i class="nc-icon nc-layout-11"></i>
-                    <p>
-                      <span class="d-lg-none d-md-block">Stats</span>
-                    </p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link btn-rotate" href="javascript:;">
-                    <i class="nc-icon nc-settings-gear-65"></i>
-                    <p>
-                      <span class="d-lg-none d-md-block">Account</span>
-                    </p>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      <!-- End Navbar -->
-      <div class="content2">
-          <div class="col-md-11 col-11" style="margin-top: 63px; margin-left: 20px;" >
-            <div class="card ">
-              
-              <div class="card-header ">
-                <!-- <p class="card-category">24 Hours performance</p> -->
-              </div>
-              <div class="card-body ">
                 <div class="row">
-                <div class="col-md-2 col-2">
-                  <div class="avatar3">
-                    <img src="{{salonOwner.image}}" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Thông tin mô tả</label>
+                      <textarea class="form-control textarea"  name="TXTdescriptionService" [(ngModel)]="salonOwner.description" ></textarea>
+                    </div>
                   </div>
                 </div>
-                <div class="col-lg-7 col-7"     style="margin-left: 60px;"><br>
-                  Tên: {{salonOwner.name}} <br>
-                  Dịch vụ : {{salonOwner.description}}<br>
-                  Giá Gốc : {{salonOwner.price}} vnd/người<br>
-                  Đánh Giá : {{salonOwner.rating}} <i class="fa fa-star" aria-hidden="true" style="color: #e3b04b;"></i> <br>
-                  Khuyến Mãi : 15% <br>
-                  Đã Sử Dụng : 15 người <br>
+                
+                <div class="row">
+                  <div class="update ml-auto mr-auto">
+                    <button type="submit" class="btn btn-primary btn-round" (click)="goupdateservice()" >Cập Nhật Thông Tin</button>
+                  </div>
+                </div>
+                <!--             
+            <div class="row">
+              <div class="col-md-2 col-2">
+                <div class="avatar3">
+                  <img src="{{salonOwner.image}}" alt="Circle Image" class="img-circle img-no-padding img-responsive">
                 </div>
               </div>
+              <div class="col-lg-7 col-7" style="margin-left: 60px;"><br>
+                Tên: {{salonOwner.name}} <br>
+                Dịch vụ : {{salonOwner.description}}<br>
+                Giá Gốc : {{salonOwner.price}} vnd/người<br>
+                Đánh Giá : {{salonOwner.rating}} <i class="fa fa-star" aria-hidden="true" style="color: #e3b04b;"></i>
+                <br>
+                Khuyến Mãi : 15% <br>
+                Đã Sử Dụng : 15 người <br>
               </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="table-responsive">
-                  <table class="table">
-                    <thead class=" text-primary">
-                      <th>
-                        Tên khách hàng
-                      </th>
-                      <th>
-                        nội dung
-                      </th>
-                      <th class="text-right">
-                        Chấm Điểm
-                      </th>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor="let st of feedback" >
-                        <td>
-                          {{st.userdeedback}}
-                        </td>
-                        <td>
-                          {{st.content}}
-                        </td>
-                        <td class="text-right">
-                          {{st.rating}} <i class="fa fa-star" aria-hidden="true" style="color: #e3b04b;"></i>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+              <div class="row">
+                <div class="update ml-auto mr-auto">
+                  <button type="submit" class="btn btn-primary btn-round" (click)="goupdateservice()">Cập Nhật</button>
                 </div>
+              </div>
+            </div> -->
               </div>
             </div>
           </div>
+          <div class="card-footer ">
+            <hr>
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                  <th>
+                    Tên khách hàng
+                  </th>
+                  <th>
+                    nội dung
+                  </th>
+                  <th class="text-right">
+                    Chấm Điểm
+                  </th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let st of feedback">
+                    <td>
+                      {{st.userdeedback}}
+                    </td>
+                    <td>
+                      {{st.content}}
+                    </td>
+                    <td class="text-right">
+                      {{st.rating}} <i class="fa fa-star" aria-hidden="true" style="color: #e3b04b;"></i>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
 
-<!-- </div> -->
+    <!-- </div> -->
     <footer>
       <!-- <div class="chat-popup" id="myForm">
         <form action="/action_page.php" class="form-container">
@@ -207,7 +258,7 @@
       </div> -->
     </footer>
   </div>
-</div> 
+</div>
 <!--   Core JS Files   -->
 <script src="../assets/js/core/jquery.min.js"></script>
 <script src="../assets/js/core/popper.min.js"></script>
@@ -220,18 +271,19 @@
 <!--  Notifications Plugin    -->
 <script src="../assets/js/plugins/bootstrap-notify.js"></script>
 <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="../assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script><!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+<script src="../assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>
+<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
 <script src="../assets/demo/demo.js"></script>
 <script>
-  $(document).ready(function() {
+  $(document).ready(function () {
     // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
     demo.initChartsPages();
   });
 </script>
-    <footer class="footer">
-      <div class="container-fluid">
-        <div class="copyright float-right">
-          Copyright © 2021 <a href="##" target="_blank">CookBox</a> All Rights Reserved.
-        </div>
-      </div>
-    </footer>
+<footer class="footer">
+  <div class="container-fluid">
+    <div class="copyright float-right">
+      Copyright © 2021 <a href="##" target="_blank">CookBox</a> All Rights Reserved.
+    </div>
+  </div>
+</footer>

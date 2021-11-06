@@ -76,15 +76,19 @@ export class ServiceComponent {
   ngOnInit() {
     this.serviceService.getDataUserPage().subscribe((data) => {
       this.listService = data.items
-      console.log(data)
+      console.log(this.listService)
+      // console.log(data)
     })
     this.selectstatus = this.ListStatus[0].key
     console.log(this.listService)
   }
   viewDetail(sv : Service){
     console.log(sv)
-    sessionStorage.setItem('service-detail', String(sv.name));
+    sessionStorage.setItem('service-detail', String(sv.id));
     this.router.navigate(['service-detail']);
+  }
+  gotoCreateService(){
+    this.router.navigate(['service-create']);
   }
   opentab(tab:String){
     console.log(this.listService)

@@ -20,12 +20,23 @@ export class SalonProfileService {
       }),
     });
   }
+  postSalonUpdate(salon : SalonProfile) {
+    const url = 'http://localhost:3000/api/v1/admin/salonowner';
+    console.log(salon)
+    let salonAPI : SalonProfile = salon;
+    return this.http.post(url, salonAPI, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    });
+  }
 
   GetSalonprofileByID(id : number) : Observable<SalonProfile>{
-    const url ='http://localhost:3000/api/v1/admin/salonowner/'+id
+    let token = sessionStorage.getItem('token');
+
+    const url ='http://localhost:3000/api/v1/admin/salonowner/'+token
     console.log('id service: '+id);
 
-    // let token = sessionStorage.getItem('token');
     return this.http.get<SalonProfile>(url, {
       headers: new HttpHeaders({
           'Content-Type': 'application/json',
@@ -53,16 +64,6 @@ export class SalonProfileService {
           'Authorization': `Bearer ${token}`
       })
   });
-  }
-
-  getPagingUserPage(page : string) : Observable<SalonProfile>{
-    let token = sessionStorage.getItem('token');
-    return this.http.get<SalonProfile>(page, {
-      headers: new HttpHeaders({
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-      })
-    })
   }
 
 }

@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:bookinghaircut/models/appointment_model.dart';
 import 'package:bookinghaircut/service/AppointmentService.dart';
 import 'package:flutter/material.dart';

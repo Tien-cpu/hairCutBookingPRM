@@ -8,18 +8,13 @@
 <!-- CSS Just for demo purpose, don't include it in your project -->
 <!-- <link href="../../assets/demo/demo.css" rel="stylesheet" /> -->
 <div class="wrapper ">
-  <div
-    class="sidebar"
-    data-color="danger"
-    data-background-color="white"
-    data-image="../assets/img/sidebar-1.jpg"
-  >
+  <div class="sidebar" data-color="danger" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
 
-  <div class="logo">
-    <a href="#" class="simple-text logo-normal">
-      <h4 class="heading-section" style="color: #e3b04b !important;">HAIRBOOK</h4> 
-    </a>
-  </div>
+    <div class="logo">
+      <a href="#" class="simple-text logo-normal">
+        <h4 class="heading-section" style="color: #e3b04b !important;">HAIRBOOK</h4>
+      </a>
+    </div>
     <div class="sidebar-wrapper ">
       <ul class="nav">
         <li class="nav-item   ">
@@ -69,7 +64,8 @@
           </div>
           <a class="navbar-brand" href="javascript:;">Lịch Hẹn</a>
         </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-bar navbar-kebab"></span>
           <span class="navbar-toggler-bar navbar-kebab"></span>
           <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -107,35 +103,36 @@
       </div>
     </nav>
     <!-- End Navbar -->
-    <div class="content2">
-    <div class="col-md-11 col-11" style="margin-top: 63px; margin-left: 20px;" >
+    <div class="col-md-12 col-12 text-right">
+      <button type="submit" class="btn btn-primary btn-round" (click)="gotoCreateService()" style="margin-top: 95px;">Thêm Dịch vụ mới</button>
     </div>
     <div class="content2" *ngFor="let st of listService">
       <div class="row">
-        <div class="col-md-11 col-11" style=" margin-left: 20px;" >
+        <div class="col-md-11 col-11" style=" margin-left: 20px;">
           <div class="card ">
-            
+
             <div class="card-header ">
             </div>
             <div class="card-body ">
               <div class="row">
-              <div class="col-md-2 col-2">
-                <div class="avatar3">
-                  <img src="{{st.image}}" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                <div class="col-md-2 col-2">
+                  <div class="avatar3">
+                    <img src="{{st.image}}" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                  </div>
+                </div>
+                <div class="col-lg-7 col-7" style="margin-left: 60px;"><br>
+                  Tên Dịch vụ : {{st.name}} <br>
+                  Loại Dịch Vụ : Cắt tóc <br>
+                  Mô tả : {{st.description}}<br>
+                  Giá Gốc : {{st.price}} vnd/người<br>
+                  Đánh Giá : {{st.rating}} <i class="fa fa-star" aria-hidden="true" style="color: #e3b04b;"></i> <br>
+                  Khuyến Mãi : 15% <br>
+                  Đã Sử Dụng : 15 người <br>
+                  <form action="./feedback.html" class="signin-form"><button type="submit" (click)="viewDetail(st)"
+                      class="btn btn-primary btn-round">Thông tin chi tiết</button></form>
+
                 </div>
               </div>
-              <div class="col-lg-7 col-7"   style="margin-left: 60px;"><br>
-                Tên Dịch vụ : {{st.name}} <br>
-                Loại Dịch Vụ : Cắt tóc <br>
-                Mô tả : {{st.description}}<br>
-                Giá Gốc : {{st.price}} vnd/người<br>
-                Đánh Giá : {{st.rating}} <i class="fa fa-star" aria-hidden="true" style="color: #e3b04b;"></i> <br>
-                Khuyến Mãi : 15% <br>
-                Đã Sử Dụng : 15 người <br>
-                <form action="./feedback.html" class="signin-form"><button type="submit" (click)="viewDetail(st)" class="btn btn-primary btn-round">Thông tin chi tiết</button></form>
-                
-              </div>
-            </div>
             </div>
             <div class="card-footer ">
               <hr>
@@ -149,9 +146,8 @@
           </div>
         </div>
       </div>
-    </div>
 
-</div>
+    </div>
     <footer>
       <!-- <div class="chat-popup" id="myForm">
         <form action="/action_page.php" class="form-container">
@@ -190,7 +186,7 @@
       </div> -->
     </footer>
   </div>
-</div> 
+</div>
 <!--   Core JS Files   -->
 <script src="../assets/js/core/jquery.min.js"></script>
 <script src="../assets/js/core/popper.min.js"></script>
@@ -203,18 +199,19 @@
 <!--  Notifications Plugin    -->
 <script src="../assets/js/plugins/bootstrap-notify.js"></script>
 <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="../assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script><!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+<script src="../assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>
+<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
 <script src="../assets/demo/demo.js"></script>
 <script>
-  $(document).ready(function() {
+  $(document).ready(function () {
     // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
     demo.initChartsPages();
   });
 </script>
-    <footer class="footer">
-      <div class="container-fluid">
-        <div class="copyright float-right">
-          Copyright © 2021 <a href="##" target="_blank">CookBox</a> All Rights Reserved.
-        </div>
-      </div>
-    </footer>
+<footer class="footer">
+  <div class="container-fluid">
+    <div class="copyright float-right">
+      Copyright © 2021 <a href="##" target="_blank">CookBox</a> All Rights Reserved.
+    </div>
+  </div>
+</footer>

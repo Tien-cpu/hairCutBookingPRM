@@ -1,7 +1,3 @@
-// import 'dart:js';
-
-import 'dart:js';
-
 import 'package:bookinghaircut/screens/welcome/welcom_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:bookinghaircut/screens/sign_in/sign_in_screen.dart';

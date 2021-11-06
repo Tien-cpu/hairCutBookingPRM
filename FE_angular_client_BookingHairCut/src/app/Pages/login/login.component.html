@@ -17,11 +17,11 @@
             <form action="./dashboard.html" class="signin-form">
               <div class="form-group mb-3">
                 <label class="label" for="name">Username</label>
-                <input type="text" class="form-control" placeholder="Username">
+                <input type="text" name="txtemail" [(ngModel)]="email" class="form-control" placeholder="Username">
               </div>
               <div class="form-group mb-3">
                 <label class="label" for="password">Password</label>
-                <input type="password" class="form-control" placeholder="Password">
+                <input type="password" name="txtpasss" [(ngModel)]="password" class="form-control" placeholder="Password">
               </div>
               <div class="form-group">
                 <button type="submit" (click)="login()" class="form-control btn btn-primary rounded submit px-3">Đăng Nhập</button>

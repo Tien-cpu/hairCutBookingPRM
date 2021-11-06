@@ -120,7 +120,7 @@ export class SalonProfileComponent {
     console.log(this.salon)
   }
   updatesalon(){
-    console.log(this.salon)
+    this.salonProfileService.postSalonUpdate(this.salon).subscribe((error: any) => (console.log(error)));
   }
   opentab(tab:String){
     if(tab === 'DaDat'){

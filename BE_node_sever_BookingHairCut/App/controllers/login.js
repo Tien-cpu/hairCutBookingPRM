@@ -1,4 +1,4 @@
-const id = require('../models/login');
+const loginAccount = require('../models/login');
 exports.checklogin2 = function( req , res){
     // id.set('test');
     // console.log("run controller test");
@@ -56,4 +56,27 @@ exports.checklogin = function( req , res){
             ,
         ]);
     console.log("end controller test");
+}
+exports.checkloginadmin = function( req , res){
+    const account = req.body
+    console.log(account);
+    // return res.json(account);
+    var username = account.email;
+    var password = account.pass;
+    console.log(username);
+    console.log(password);
+    loginAccount.get_accountid_by_username(username,password,function(data){
+        console.log(data)
+        if(data.length === 0){
+            return res.json(
+                [
+                    {
+                        id: 0
+                    }
+                    ,
+                ]);
+        }else{
+            return res.json(data);
+        }
+    });
 }
