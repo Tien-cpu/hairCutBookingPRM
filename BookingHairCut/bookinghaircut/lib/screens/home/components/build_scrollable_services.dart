@@ -23,37 +23,39 @@ class PopularService extends StatelessWidget {
       builder: (BuildContext context, AsyncSnapshot<List<ServicesModel>> snap) {
         if (snap.hasData) {
           List<ServicesModel> services = snap.requireData;
-          return Column(
-            children: [
-              const SizedBox(height: 12),
-              SizedBox(
-                child: ListView.builder(
-                  itemCount: services.length,
-                  shrinkWrap: true,
-                  physics: const ScrollPhysics(),
-                  itemBuilder: (context, index) {
-                    final service = services[index];
-                    if (service.name == '' || service.name == null) {
-                      return Container(
-                        width: MediaQuery.of(context).size.width,
-                        margin: const EdgeInsets.only(bottom: 12),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          color: Colors.blueAccent,
-                        ),
-                        height: 45,
-                        child: ListTile(
-                          title: Text(service.name ?? 'No data'),
-                        ),
-                      );
-                    }
-                    return _BuildServiceCard(service: service);
-                  },
+          if (!services.isEmpty) {
+            return Column(
+              children: [
+                const SizedBox(height: 12),
+                SizedBox(
+                  child: ListView.builder(
+                    itemCount: services.length,
+                    shrinkWrap: true,
+                    physics: const ScrollPhysics(),
+                    itemBuilder: (context, index) {
+                      final service = services[index];
+                      if (service.name == '' || service.name == null) {
+                        return Container(
+                          width: MediaQuery.of(context).size.width,
+                          margin: const EdgeInsets.only(bottom: 12),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            color: Colors.blueAccent,
+                          ),
+                          height: 45,
+                          child: ListTile(
+                            title: Text(service.name ?? 'No data'),
+                          ),
+                        );
+                      }
+                      return _BuildServiceCard(service: service);
+                    },
+                  ),
                 ),
-              ),
-            ],
-          );
-          // return Text(postl.length.toString());
+              ],
+            );
+            // return Text(postl.length.toString());
+          }
         }
         return CircularProgressIndicator();
       },

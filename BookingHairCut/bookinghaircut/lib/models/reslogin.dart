@@ -1,11 +1,11 @@
 class reslogin {
-  bool id;
+  int id;
 
   reslogin({required this.id});
 
   factory reslogin.fromJson(Map<String, dynamic> json) {
     var val = 'True';
-    return reslogin(id: (val.toLowerCase() == json['id']));
+    return reslogin(id: json['id']);
   }
 
   Map<String, dynamic> toJson() {

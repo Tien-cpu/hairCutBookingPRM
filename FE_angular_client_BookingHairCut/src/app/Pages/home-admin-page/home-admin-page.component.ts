@@ -76,6 +76,9 @@ export class HomeComponent {
   public cancelA : Appoinment[] = [];
   ngOnInit() {
     this.salonAppoinmentService.getDataDasboardPage().subscribe((data)=>{
+      this.commingA = []
+      this.finishA = []
+      this.cancelA = []
       data.forEach((item) => {
         if(item.status == 'comming'){
           this.commingA.push(item)

@@ -11,7 +11,30 @@ const Appointment = function(appointment) {
     this.isSelected = book.isSelected;
     this.barbershop = book.barbershop;
 }
-
+Appointment.get_all_US = function(result){
+    let sql2 = "select ss.id, ss.name, ss.DescriptionService, ss.image, ss.Price, sc.name as categoryname, sl.opentime, sl.closetime from salonservice ss left join saloncategory sc on ss.categoryid = sc.id left join salon sl on ss.salonID = sl.salonOwner";
+  console.log(sql2);
+  Connection.query(sql2, function(err, data){
+      if(err){
+          result(err);
+          return;
+      } else {
+          result(data);
+      }
+  });
+}
+Appointment.get_all_US_category = function(id,result){
+    let sql2 = "select ss.id, ss.name, ss.DescriptionService, ss.image, ss.Price, sc.name as categoryname, sl.opentime, sl.closetime from salonservice ss left join saloncategory sc on ss.categoryid = sc.id left join salon sl on ss.salonID = sl.salonOwner where sc.id = "+id;
+  console.log(sql2);
+  Connection.query(sql2, function(err, data){
+      if(err){
+          result(err);
+          return;
+      } else {
+          result(data);
+      }
+  });
+}
 Appointment.get_all = function(id,result){
     let sql2 = "select ss.id, ss.name, ss.DescriptionService, ss.image, ss.Price, sc.name as categoryname from salonservice ss left join saloncategory sc on ss.categoryid = sc.id where ss.salonID = "+id;
   console.log(sql2);

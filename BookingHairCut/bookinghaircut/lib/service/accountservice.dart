@@ -7,12 +7,12 @@ import 'dart:convert';
 // import 'package:dio/dio.dart';
 
 class netWorkRequestnode {
-  final porturl = 'http://localhost:3000/login/checklogin';
+  final porturl = 'http://localhost:3000/api/v1/user/login/checklogin';
   Future<List<reslogin>> checklogin() async {
     Uri uri = Uri.parse(porturl);
     http.Response res;
     try {
-      res = await http.get(uri, headers: {
+      res = await http.post(uri, headers: {
         "Accept": "application/json",
         "Access-Control_Allow_Origin": "*"
       });
@@ -31,30 +31,29 @@ class netWorkRequestnode {
     }
   }
 
-  Future<reslogin> checklogint() async {
+  Future<reslogin> checklogint(String email, String pass) async {
     Uri uri = Uri.parse(porturl);
     http.Response res;
-    print("1");
     try {
-      print("1.1");
-      res = await http.get(uri, headers: {
-        "Accept": "application/json",
-        "Access-Control_Allow_Origin": "*"
-      });
-      print("1.2");
+      res = await http.post(
+        uri,
+        headers: {
+          "Accept": "application/json",
+          "Access-Control_Allow_Origin": "*"
+        },
+        body: {"email": email, "pass": pass},
+      );
     } catch (e) {
       print(e.toString());
       throw Exception(e);
     }
-    print("2");
     try {
       if (res.statusCode == 200) {
-        print(res.body);
         List<dynamic> body = json.decode(res.body);
-        print("5");
         reslogin post =
             body.map((dynamic e) => reslogin.fromJson(e)).toList().first;
-        print("4");
+        // SharedPreferences prefs = await SharedPreferences.getInstance();
+        // var status = prefs.getBool('isLoggedIn') ?? false;
         return post;
       } else {
         throw Exception("not found");
@@ -66,6 +65,6 @@ class netWorkRequestnode {
   }
 
   resloginF() {
-    Future<reslogin> ketqua = checklogint();
+    // Future<reslogin> ketqua = checklogint();
   }
 }

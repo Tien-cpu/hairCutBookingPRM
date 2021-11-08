@@ -1,8 +1,6 @@
 const salonowner = require('../models/salonowner');
 exports.updatesalonowner = function(req, res){
-  console.log(req.body)
   salonowner.update(req.body,function(data){
-    console.log(data)
     if(data.length === 0){
         return res.json(
             [
@@ -38,7 +36,6 @@ exports.updatesalonowner = function(req, res){
 
 }
 exports.getsalonowner = function( req , res){
-    console.log("salon id: "+req.params.id)
     return res.json(
         
             {   "id": 1,
@@ -123,7 +120,6 @@ exports.getasevicecategory = function( req , res){
         ]);
 }
 exports.getsalondetailadmin = function( req , res){
-  console.log("salon id: "+req.params.id)
   var dataResult = 
     { "id": 0,
     "name": '',
@@ -141,9 +137,7 @@ exports.getsalondetailadmin = function( req , res){
     "imageBackground": '',
     };
     var id = req.params.id;
-    console.log(id);
     salonowner.getdetail(id,function(data){
-        console.log(data)
         if(data.length === 0){
             return res.json(
                 [
@@ -176,7 +170,6 @@ exports.getsalondetailadmin = function( req , res){
                     ]);
                 }else{
                   data2.forEach(element => {
-                    console.log(element)
                     dataResult.workDay.push({
                       date : element.date , id : element.dateid, status : element.status == 0? false : true
                     })
@@ -192,7 +185,6 @@ exports.getsalondetailadmin = function( req , res){
 exports.postupdatesalondetailadmin = function( req , res){
 
     salonowner.getdetail(req.body,function(data){
-        console.log(data)
         if(data.length === 0){
             return res.json(
                 [
@@ -213,7 +205,6 @@ exports.postupdatesalondetailadmin = function( req , res){
                     ]);
                 }else{
                   data2.forEach(element => {
-                    console.log(element)
                     dataResult.workDay.push({
                       date : element.date , id : element.dateid, status : element.status == 0? false : true
                     })

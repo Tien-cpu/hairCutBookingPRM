@@ -12,23 +12,29 @@ class netWorkRequestService {
 
   Future<List<ServicesModel>> letcategory() async {
     Uri uri = Uri.parse(porturl);
+    print("1");
     http.Response res;
     try {
+      print("2");
       res = await http.get(uri, headers: {
         "Accept": "application/json",
         "Access-Control_Allow_Origin": "*"
       });
+      print("3");
     } catch (e) {
       print(e.toString());
       throw Exception(e);
     }
-    if (res.statusCode == 200) {
-      List<dynamic> body = json.decode(res.body);
-      List<ServicesModel> category =
-          body.map((dynamic e) => ServicesModel.fromJson(e)).toList();
-      return category;
-    } else {
-      throw Exception("not found");
-    }
+    // if (res.statusCode == 200) {
+    print("4");
+    print(res.body);
+    List<dynamic> body = json.decode(res.body);
+    print("body");
+    List<ServicesModel> category =
+        body.map((dynamic e) => ServicesModel.fromJson(e)).toList();
+    return category;
+    // } else {
+    // throw Exception("not found");
+    // }
   }
 }

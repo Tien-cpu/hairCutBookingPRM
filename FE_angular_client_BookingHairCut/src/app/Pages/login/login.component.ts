@@ -48,6 +48,7 @@ export class LoginComponent implements OnInit {
     console.log(user);
     this.accountService.getTokenadmin(user).subscribe(
       (data: any) => {
+        console.log(data);
         const obj = JSON.parse(data);
           if(obj[0].id == 0){
             console.log('ll');

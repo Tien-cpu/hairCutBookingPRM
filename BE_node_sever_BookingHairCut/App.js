@@ -17,6 +17,7 @@ var serviceRouter = require('./App/routers/service');
 var appointmentRouter = require('./App/routers/appointment');
 var salonownerRouter = require('./App/routers/salonowner');
 var feedbackRouter = require('./App/routers/feedback');
+var notificationsRouter = require('./App/routers/notifications');
 
 app.use('/',feedbackRouter)
 app.use('/',salonownerRouter)
@@ -24,6 +25,7 @@ app.use('/',appointmentRouter)
 app.use('/',loginRouter);
 app.use('/',categortRouter);
 app.use('/',serviceRouter);
+app.use('/',notificationsRouter);
 app.listen(3000,function(){
     console.log("Server running on http://localhost:3000/");
 });

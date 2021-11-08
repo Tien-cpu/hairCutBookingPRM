@@ -1,13 +1,13 @@
 var Connection = require('../commons/connection');
-const Salon = function(appointment) {
-    this.id = book.id;
-    this.name = book.name;
-    this.icon = book.icon;
-    this.status = book.status;
+const category = function(category) {
+    this.id = category.id;
+    this.name = category.name;
+    this.icon = category.icon;
+    this.status = category.status;
 }
-Salon.getallct = function(id,result){
+category.getallct = function(result){
   
-  let sql2 = "select * from saloncategory";
+  let sql2 = "select id,name from saloncategory";
   console.log(sql2);
   Connection.query(sql2, function(err, data){
       if(err){
@@ -18,4 +18,17 @@ Salon.getallct = function(id,result){
       }
   });
 }
-module.exports = Salon;
+category.getallctus = function(result){
+  
+    let sql2 = "select id,name,icon from saloncategory";
+    console.log(sql2);
+    Connection.query(sql2, function(err, data){
+        if(err){
+            result(err);
+            return;
+        } else {
+            result(data);
+        }
+    });
+  }
+module.exports = category;

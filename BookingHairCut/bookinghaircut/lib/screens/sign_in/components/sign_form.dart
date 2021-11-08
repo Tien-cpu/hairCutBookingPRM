@@ -87,8 +87,8 @@ class _SignFormState extends State<SignForm> {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
                 KeyboardUtil.hideKeyboard(context);
-                net.checklogint().then((value) => {
-                      if (value.id == true)
+                net.checklogint(email!, password!).then((value) => {
+                      if (value.id != 0)
                         {
                           Navigator.pushNamed(
                               context, LoginSuccessScreen.routeName)

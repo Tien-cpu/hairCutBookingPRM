@@ -46,7 +46,7 @@ class CustomBottomNavBar extends StatelessWidget {
                     Navigator.pushNamed(context, HomeScreen.routeName),
               ),
               IconButton(
-                icon: const Icon(FeatherIcons.heart),
+                icon: const Icon(FeatherIcons.bell),
                 onPressed: () =>
                     Navigator.pushNamed(context, LoveScreen.routeName),
               ),

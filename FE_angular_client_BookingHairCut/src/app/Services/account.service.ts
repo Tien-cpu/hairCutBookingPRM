@@ -31,7 +31,7 @@ export class AccountService {
     public getTokenadmin(user:{"email":string, "pass": string}): Observable<any> {
 
 
-        return this.http.post('http://3.19.62.41:8190/api/v1/admin/login/checklogin',
+        return this.http.post('http://localhost:3000/api/v1/admin/login/checklogin',
             user
           , {
             headers: new HttpHeaders({

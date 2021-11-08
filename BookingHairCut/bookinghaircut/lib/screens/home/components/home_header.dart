@@ -20,7 +20,7 @@ class BuildHeader extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            width: SizeConfig.screenWidth * 0.75,
+            width: SizeConfig.screenWidth * 0.9,
             // height: 50,
             decoration: BoxDecoration(
                 color: Colors.black.withOpacity(0.1),
@@ -46,11 +46,11 @@ class BuildHeader extends StatelessWidget {
           //   press: () {},
           //   // Navigator.pushNamed(context, CartScreen.routeName),
           // ),
-          Icontbtnwithcounter(
-            svgSrc: "assets/icons/Bell.svg",
-            numOfitem: 3,
-            press: () {},
-          ),
+          // Icontbtnwithcounter(
+          //   svgSrc: "assets/icons/Bell.svg",
+          //   numOfitem: 3,
+          //   press: () {},
+          // ),
         ],
       ),
     );
