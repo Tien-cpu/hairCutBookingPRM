@@ -13,7 +13,7 @@ import { adminservicepage } from '../Models/AdminSalonOwnerPageModel'
 export class ServiceService {
     constructor(private http: HttpClient) {}
     getDataAservicePage(id: number) {
-      const url = 'http://localhost:3000/service/getserviceadmindetail/'+id;
+      const url = 'http://3.19.62.41:8190/service/getserviceadmindetail/'+id;
       let token = sessionStorage.getItem('token');
       console.log('token au: ', token);
   
@@ -26,7 +26,7 @@ export class ServiceService {
     getDataUserPage() {
         let token = sessionStorage.getItem('token');
         console.log('token au: ', token);
-        const url = 'http://localhost:3000/service/getserviceadmin/'+token;
+        const url = 'http://3.19.62.41:8190/service/getserviceadmin/'+token;
         return this.http.get<adminservicepage>(url, {
           headers: new HttpHeaders({
             'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ export class ServiceService {
     }
     postUpdateService(service: Service) {
       let token = sessionStorage.getItem('token');
-        const url = 'http://localhost:3000/service/getserviceadmin/'+token;
+        const url = 'http://3.19.62.41:8190/service/getserviceadmin/'+token;
         console.log('token au: ', token);
     
         return this.http.post(url, service, {

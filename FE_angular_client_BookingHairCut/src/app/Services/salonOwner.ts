@@ -9,7 +9,7 @@ export class SalonProfileService {
   constructor(private http: HttpClient) {}
 
   getDataUserPage() {
-    const url = 'http://54.255.129.30:8100/api/v1/admin/users';
+    const url = 'http://3.19.62.41:8190/api/v1/admin/users';
     let token = sessionStorage.getItem('token');
     console.log('token au: ', token);
 
@@ -21,7 +21,7 @@ export class SalonProfileService {
     });
   }
   postSalonUpdate(salon : SalonProfile) {
-    const url = 'http://localhost:3000/api/v1/admin/salonowner';
+    const url = 'http://3.19.62.41:8190/api/v1/admin/salonowner';
     console.log(salon)
     let salonAPI : SalonProfile = salon;
     return this.http.post(url, salonAPI, {
@@ -34,7 +34,7 @@ export class SalonProfileService {
   GetSalonprofileByID(id : number) : Observable<SalonProfile>{
     let token = sessionStorage.getItem('token');
 
-    const url ='http://localhost:3000/api/v1/admin/salonowner/'+token
+    const url ='http://3.19.62.41:8190/api/v1/admin/salonowner/'+token
     console.log('id service: '+id);
 
     return this.http.get<SalonProfile>(url, {
@@ -55,7 +55,7 @@ export class SalonProfileService {
     "status": boolean,
     "email": string
   }): Observable<any> {
-    const url = 'http://54.255.129.30:8100/api/v1/admin/users';
+    const url = 'http://3.19.62.41:8190/api/v1/admin/users';
     let token = sessionStorage.getItem('token');
 
     return this.http.put(url,user,{

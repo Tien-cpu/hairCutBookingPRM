@@ -21,7 +21,7 @@ export class StoreService {
     }
 
     getDataPageHome() : Observable<adminpage>{
-      const url ='http://54.255.129.30:8100/api/v1/admin/stores'
+      const url ='http://3.19.62.41:8190/api/v1/admin/stores'
       let token = sessionStorage.getItem('token');
       return this.http.get<adminpage>(url, {
         headers: new HttpHeaders({
@@ -31,7 +31,7 @@ export class StoreService {
       });
     }
     getDataPageHomePaging(page : string) : Observable<adminpage>{
-      const url ='http://54.255.129.30:8100/api/v1/admin/stores'
+      const url ='http://3.19.62.41:8190/api/v1/admin/stores'
       let token = sessionStorage.getItem('token');
       return this.http.get<adminpage>(page, {
         headers: new HttpHeaders({
@@ -42,7 +42,7 @@ export class StoreService {
     }
 
     delteAStore(id: number): Observable<any>{
-      const url ='http://54.255.129.30:8100/api/v1/admin/stores/'+id;
+      const url ='http://3.19.62.41:8190/api/v1/admin/stores/'+id;
       let token = sessionStorage.getItem('token');
       console.log(token+url);
       return this.http.delete(url, {
@@ -59,7 +59,7 @@ export class StoreService {
       "status": boolean
     }): Observable<any>{
 
-      const url ='http://54.255.129.30:8100/api/v1/admin/stores'
+      const url ='http://3.19.62.41:8190/api/v1/admin/stores'
 
       let token = sessionStorage.getItem('token');
       store.status = false;
@@ -80,7 +80,7 @@ export class StoreService {
       "status": boolean
     }): Observable<any>{
 
-      const url ='http://54.255.129.30:8100/api/v1/admin/stores'
+      const url ='http://3.19.62.41:8190/api/v1/admin/stores'
 
       let token = sessionStorage.getItem('token');
 
@@ -95,7 +95,7 @@ export class StoreService {
 
     // getAStore(id: number) : Observable<Store>{
     //   console.log(id)
-    //   const url ='http://54.255.129.30:8100/api/v1/admin/stores/'+id;
+    //   const url ='http://3.19.62.41:8190/api/v1/admin/stores/'+id;
     //   let token = sessionStorage.getItem('token');
     //   console.log(url)
     //   // return this.http.get<Store>(url, {
@@ -107,7 +107,7 @@ export class StoreService {
     // }
 
     getData(){
-        const url ='http://54.255.129.30:8100/api/v1/admin/stores'
+        const url ='http://3.19.62.41:8190/api/v1/admin/stores'
         let token = sessionStorage.getItem('token');
         return this.http.get(url, {
           headers: new HttpHeaders({
@@ -117,7 +117,7 @@ export class StoreService {
       });
     }
     getDataByName(name: string) : Observable<adminpage>{
-      const url ='http://54.255.129.30:8100/api/v1/admin/stores?name='+name
+      const url ='http://3.19.62.41:8190/api/v1/admin/stores?name='+name
       let token = sessionStorage.getItem('token');
       return this.http.get<adminpage>(url, {
         headers: new HttpHeaders({
@@ -131,7 +131,7 @@ export class StoreService {
       "address":string,
       "status":boolean
     }){
-      const url ='http://54.255.129.30:8100/api/v1/admin/stores'
+      const url ='http://3.19.62.41:8190/api/v1/admin/stores'
       let token = sessionStorage.getItem('token');
       return this.http.post(url,store, {
           headers: new HttpHeaders({

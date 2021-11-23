@@ -11,7 +11,7 @@ import { FeedBack } from '../Models/FeedBackModel'
 export class FeedBackService {
     constructor(private http: HttpClient) {}
     getDataFeedBackPage(id: number) {
-      const url = 'http://localhost:3000/api/v1/admin/feedbackService/'+id;
+      const url = 'http://3.19.62.41:8190/api/v1/admin/feedbackService/'+id;
       let token = sessionStorage.getItem('token');
       console.log('token au: ', token);
   

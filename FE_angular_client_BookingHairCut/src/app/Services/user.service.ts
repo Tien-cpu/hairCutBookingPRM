@@ -11,7 +11,7 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   getDataUserPage() {
-    const url = 'http://54.255.129.30:8100/api/v1/admin/users';
+    const url = 'http://3.19.62.41:8190/api/v1/admin/users';
     let token = sessionStorage.getItem('token');
     console.log('token au: ', token);
 
@@ -24,7 +24,7 @@ export class UserService {
   }
 
   GetUserByID(id : number) : Observable<Users>{
-    const url ='http://54.255.129.30:8100/api/v1/admin/users/'+id
+    const url ='http://3.19.62.41:8190/api/v1/admin/users/'+id
     console.log('id service: '+id);
 
     let token = sessionStorage.getItem('token');
@@ -46,7 +46,7 @@ export class UserService {
     "status": boolean,
     "email": string
   }): Observable<any> {
-    const url = 'http://54.255.129.30:8100/api/v1/admin/users';
+    const url = 'http://3.19.62.41:8190/api/v1/admin/users';
     let token = sessionStorage.getItem('token');
 
     return this.http.put(url,user,{

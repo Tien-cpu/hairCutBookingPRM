@@ -88,7 +88,18 @@ Appointment.get_all_for_us = function(id,style,result){
             result(err);
             return;
         } else {
-            result('OK');
+            let sql2 = "insert into `notifications`( `createtime` ,`style`,`cusid`,`serviceid`) VALUES"
+            +"(sysdate(), 1, "+ojb.cusid+" , "+ojb.serviceid+");";
+            console.log(sql2);
+            Connection.query(sql2, function(err, data2){
+            console.log(data);
+                if(err){
+                    result(err);
+                    return;
+                } else {
+                    result('OK');
+                }
+            });
         }
     });
   }
@@ -100,7 +111,28 @@ Appointment.get_all_for_us = function(id,style,result){
             result(err);
             return;
         } else {
-            result('OK');
+            let sql3 = "select serviceid, cusid from apointment;";
+            console.log(sql3);
+            Connection.query(sql3, function(err, data2){
+            console.log(data2);
+                if(err){
+                    result(err);
+                    return;
+                } else {
+                    let sql2 = "insert into `notifications`( `createtime` ,`style`,`cusid`,`serviceid`) VALUES"
+                    +"(sysdate(), 0, "+data2[0].cusid+" , "+data2[0].serviceid+");";
+                    console.log(sql2);
+                    Connection.query(sql2, function(err, data3){
+                    console.log(data);
+                        if(err){
+                            result(err);
+                            return;
+                        } else {
+                            result('OK');
+                        }
+                    });
+                }
+            });
         }
     });
   }

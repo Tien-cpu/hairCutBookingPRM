@@ -10,7 +10,7 @@ export class SalonAppoinmentService {
 
   getDataDasboardPage() {
     let token = sessionStorage.getItem('token');
-    const url = 'http://localhost:3000/api/v1/admin/appointment/'+token;
+    const url = 'http://3.19.62.41:8190/api/v1/admin/appointment/'+token;
     return this.http.get<Appoinment[]>(url, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -19,7 +19,7 @@ export class SalonAppoinmentService {
     });
   }
   postCancelDasboardPage(apoinment : Appoinment) {
-    const url = 'http://localhost:3000/api/v1/admin/appointment';
+    const url = 'http://3.19.62.41:8190/api/v1/admin/appointment';
     let token = sessionStorage.getItem('token');
     return this.http.post(url, apoinment,{
       headers: new HttpHeaders({

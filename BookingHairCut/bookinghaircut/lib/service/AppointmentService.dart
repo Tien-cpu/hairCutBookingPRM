@@ -9,11 +9,11 @@ import 'dart:convert';
 // import 'package:dio/dio.dart';
 
 class netWorkRequestAppointmentService {
-  final porturl = 'http://localhost:3000/service/getservice';
+  final porturl = 'http://3.19.62.41:8190/service/getservice';
 
   Future<List<AppointmentModel>> listAppointmentPending() async {
     Uri uri =
-        Uri.parse('http://localhost:3000/appointment/getappointmentPending');
+        Uri.parse('http://3.19.62.41:8190/appointment/getappointmentPending');
     http.Response res;
     try {
       res = await http.get(uri, headers: {

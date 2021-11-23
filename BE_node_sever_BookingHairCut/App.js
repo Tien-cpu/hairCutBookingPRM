@@ -27,7 +27,7 @@ app.use('/',categortRouter);
 app.use('/',serviceRouter);
 app.use('/',notificationsRouter);
 app.listen(3000,function(){
-    console.log("Server running on http://localhost:3000/");
+    console.log("Server running on http://3.19.62.41:8190/");
 });
 
 // http.createServer(function (req, res) {

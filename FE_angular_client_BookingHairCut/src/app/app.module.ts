@@ -13,6 +13,7 @@ import { SalonProfileComponent } from './Pages/salon-profile/salon-profile.compo
 import { ServiceComponent } from './Pages/service-manage/service-manage.component';
 import { ServiceDetailComponent } from './Pages/service-detail/service-detail.component';
 import { ServiceCreateComponent } from './Pages/service-create/service-create.component';
+import { notificationComponent } from './Pages/notification/notification.component';
 // import { UpdateStoreComponent } from './Pages/page_update_store/page_update_store.component';
 // tự thêm:
 import {HttpClientModule} from '@angular/common/http';
@@ -51,6 +52,7 @@ const firebaseConfig = {
     ServiceComponent,
     ServiceDetailComponent,
     ServiceCreateComponent,
+    notificationComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,6 +72,7 @@ const firebaseConfig = {
       {path: 'service-management', component: ServiceComponent},
       {path: 'service-detail', component: ServiceDetailComponent},
       {path: 'service-create', component: ServiceCreateComponent},
+      {path: 'notification', component: notificationComponent},
     ])
   ],
   providers: [FirebaseService],

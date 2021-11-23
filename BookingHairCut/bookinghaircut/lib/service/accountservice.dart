@@ -7,7 +7,7 @@ import 'dart:convert';
 // import 'package:dio/dio.dart';
 
 class netWorkRequestnode {
-  final porturl = 'http://localhost:3000/api/v1/user/login/checklogin';
+  final porturl = 'http://3.19.62.41:8190/api/v1/user/login/checklogin';
   Future<List<reslogin>> checklogin() async {
     Uri uri = Uri.parse(porturl);
     http.Response res;

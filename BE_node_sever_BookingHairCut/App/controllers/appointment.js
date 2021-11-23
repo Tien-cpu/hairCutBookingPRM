@@ -66,18 +66,10 @@ exports.postBookingService = function( req , res){
         if(data == 'OK'){
             res.status(200).json(
                 [
-                    {
-                        status: 'OK'
-                    }
-                    ,
                 ]);
             }else{
                 res.status(291).json(
                     [
-                        {
-                            status: 'NG'
-                        }
-                        ,
                     ]);
             }
           }
@@ -107,10 +99,6 @@ exports.getapoinmentadmindetail = function( req , res){
         if(data.length === 0){
             return res.json(
                 [
-                    {
-                        id: 0
-                    }
-                    ,
                 ]);
             }else{
                 console.log(data)
@@ -137,10 +125,6 @@ exports.getapoinmentadmindetail = function( req , res){
 exports.getasevicecategory = function( req , res){
     return res.json(
         [
-            {
-                id: "true"
-            }
-            ,
         ]);
     console.log("end controller test");
 }

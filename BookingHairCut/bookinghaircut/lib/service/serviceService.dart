@@ -8,7 +8,7 @@ import 'dart:convert';
 // import 'package:dio/dio.dart';
 
 class netWorkRequestService {
-  final porturl = 'http://localhost:3000/service/getservice';
+  final porturl = 'http://3.19.62.41:8190/service/getservice';
 
   Future<List<ServicesModel>> letcategory() async {
     Uri uri = Uri.parse(porturl);

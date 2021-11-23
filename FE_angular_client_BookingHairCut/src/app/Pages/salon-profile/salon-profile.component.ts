@@ -153,7 +153,7 @@ export class SalonProfileComponent {
     this.router.navigate(['service-management']);
   }
   goEmployeePage(){
-    this.router.navigate(['employee-page']);
+    this.router.navigate(['notification']);
   }
   goUserPage(){
     this.router.navigate(['user-page']);

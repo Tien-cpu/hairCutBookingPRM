@@ -9,7 +9,7 @@ export class SalonCategoryService {
   constructor(private http: HttpClient) {}
 
   getDataCategoryPage() {
-    const url = 'http://localhost:3000/api/v1/admin/category';
+    const url = 'http://3.19.62.41:8190/api/v1/admin/category';
     let token = sessionStorage.getItem('token');
     console.log('token au: ', token);
     return this.http.get<Category[]>(url, {

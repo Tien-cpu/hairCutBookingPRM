@@ -66,7 +66,7 @@ export class ServiceDetailComponent {
     this.router.navigate(['service-management']);
   }
   goEmployeePage(){
-    this.router.navigate(['service-management']);
+    this.router.navigate(['notification']);
   }
   goUserPage(){
     this.router.navigate(['salon-profile']);

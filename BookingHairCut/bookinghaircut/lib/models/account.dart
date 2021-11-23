@@ -18,7 +18,7 @@
 // }
 
 // class checkloginRequest {
-//   static final url = "http://localhost:3000/login/checklogin";
+//   static final url = "http://3.19.62.41:8190/login/checklogin";
 
 //   static List<account_model> account_modelpost(String repon) {
 //     var list = json.decode(repon) as List<dynamic>;
